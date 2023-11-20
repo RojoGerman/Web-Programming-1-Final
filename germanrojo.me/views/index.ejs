@@ -1,0 +1,67 @@
+<%- include('header') %>
+
+  <div class="container mt-5">
+    <h1 class="title is-1 has-text-centered mb-4">Swish Central</h1>
+
+    <% if (games.length> 0) { %>
+      <ul class="mb-5">
+        <% games.forEach(game=> { %>
+          <li class="box">
+            <div class="content">
+              <h2 class="title is-4">
+                <%= game.homeTeam %> vs <%= game.awayTeam %>
+              </h2>
+              <h2>
+                <!-- Dynamically sets the image for the team based on the Mongo data -->
+                <img src="/images/<%= game.homeTeam %>.png" width="8%" height="8%" alt="<%= game.homeTeam %> logo">
+                vs
+                <img src="/images/<%= game.awayTeam %>.png" width="8%" height="8%" alt="<%= game.awayTeam %> logo">
+              </h2>
+              <p>Date: <%= game.date %>, Status: <%= game.status %>
+              </p>
+              <h2>Score: <%= game.homeTeamScore %> - <%= game.awayTeamScore %>
+              </h2>
+            </div>
+          </li>
+          <% }); %>
+      </ul>
+      <% } else { %>
+        <div class="notification is-danger">
+          No games found for the specified date.
+        </div>
+        <% } %>
+  </div>
+
+  <footer class="footer has-background-black">
+    <div class="content has-text-centered">
+      <p class="has-text-white">
+        <strong class="has-text-white foot">Swish Central</strong> &copy; 2023. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+      if ($navbarBurgers.length > 0) {
+
+        $navbarBurgers.forEach(el => {
+          el.addEventListener('click', () => {
+
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          });
+        });
+      }
+
+    });
+  </script>
+  <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+  </body>
+
+  </html>

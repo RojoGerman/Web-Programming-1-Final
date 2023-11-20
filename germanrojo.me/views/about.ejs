@@ -1,0 +1,58 @@
+<%- include('header') %>
+  <div class="container mt-5">
+    <h1 class="title is-1 has-text-centered mb-4">About Swish Central</h1>
+
+    <!-- About Content -->
+    <div class="content" style="height: 600px;">
+      <center>
+        <p>
+          Swish Central is your go-to source for the latest NBA game scores and player statistics.
+        </p>
+        <p>
+          Whether you're a hardcore fan or a casual viewer, Swish Central provides up-to-date information
+          on your favorite teams, players, and more.
+        </p>
+        <p>
+          Stay tuned for the latest updates and enjoy the basketball experience with Swish Central!
+        </p>
+
+        <img src="/images/about.jpeg" length="50%" width="50%" alt="Basketball Player Logo">
+      </center>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer has-background-black">
+    <div class="content has-text-centered">
+      <p class="has-text-white">
+        <strong class="has-text-white foot">Swish Central</strong> &copy; 2023. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for toggling the navbar burger icon -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+      if ($navbarBurgers.length > 0) {
+
+        $navbarBurgers.forEach(el => {
+          el.addEventListener('click', () => {
+
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          });
+        });
+      }
+
+    });
+  </script>
+  <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+  </body>
+
+  </html>
